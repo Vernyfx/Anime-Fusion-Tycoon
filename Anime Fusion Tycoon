@@ -1,0 +1,230 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({Name = "VernyHub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+
+local Tab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddToggle({
+	Name = "Auto Deposit",
+	Default = false,
+	Callback = function(DValue)
+		
+_G.autodep = DValue
+
+task.spawn(function()
+    while _G.autodep do
+local args = {
+    [1] = "Depositar"
+}
+game:GetService("ReplicatedStorage").Remotes.Pasante:FireServer(unpack(args))
+wait(1)
+    end
+end)
+
+	end    
+})
+
+
+
+
+
+
+Tab:AddToggle({
+	Name = "Auto Buy Deposit Speed 1x",
+	Default = false,
+	Callback = function(SPValue)
+		_G.autospeed1x = SPValue
+
+        task.spawn(function()
+            while _G.autospeed1x do
+local args = {
+    [1] = "ComprarTick",
+    [2] = 1
+}
+game:GetService("ReplicatedStorage").Remotes.Pasante:FireServer(unpack(args))
+wait(0.07)
+            end
+        end)
+	end    
+})
+
+
+
+
+
+Tab:AddToggle({
+	Name = "Auto Buy Deposit Speed 10X",
+	Default = false,
+	Callback = function(SP2Value)
+        _G.autospeed10x = SP2Value
+
+        task.spawn(function()
+            while _G.autospeed10x do
+local args = {
+    [1] = "ComprarTick",
+    [2] = 10
+}
+game:GetService("ReplicatedStorage").Remotes.Pasante:FireServer(unpack(args))
+wait(0.07)
+            end
+        end)
+	end    
+})
+
+
+
+
+
+Tab:AddToggle({
+	Name = "Auto Buy 1 Character",
+	Default = false,
+	Callback = function(ACValue)
+		_G.autobuychar1 = ACValue
+
+        task.spawn(function()
+            while _G.autobuychar1 do
+local args = {
+    [1] = "Comprar1"
+}
+game:GetService("ReplicatedStorage").Remotes.Pasante:FireServer(unpack(args))
+wait(0.08)
+            end
+        end)
+	end    
+})
+
+
+
+
+
+Tab:AddToggle({
+	Name = "Auto Buy 6 Character",
+	Default = false,
+	Callback = function(AC2Value)
+		_G.autobuychar6 = AC2Value
+
+        task.spawn(function()
+            while _G.autobuychar6 do
+local args = {
+    [1] = "Comprar6"
+}
+game:GetService("ReplicatedStorage").Remotes.Pasante:FireServer(unpack(args))
+wait(0.08)
+            end
+        end)
+	end    
+})
+
+Tab:AddToggle({
+	Name = "Auto Fusion",
+	Default = false,
+	Callback = function(AFValue)
+        _G.autofuse = AFValue
+
+        task.spawn(function()
+            while _G.autofuse do
+                local args = {
+                    [1] = "Fusionar"
+                }
+                game:GetService("ReplicatedStorage").Remotes.Pasante:FireServer(unpack(args))
+                wait(5)
+            end
+        end)
+	end    
+})
+
+
+local Tab = Window:MakeTab({
+	Name = "INF MONEY/KI",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+	Name = "Add 25B KI",
+	Callback = function()
+        local args = {
+            [1] = "Agarrado",
+            [2] = "Values",
+            [3] = "20"
+        }
+        game:GetService("ReplicatedStorage").Remotes.Pasante:FireServer(unpack(args))
+  	end    
+})
+
+Tab:AddToggle({
+	Name = "Auto Spam 25B KI",
+	Default = false,
+	Callback = function(KIValue)
+		
+        _G.auto25b = KIValue
+
+        task.spawn(function()
+            while _G.auto25b do
+                local args = {
+                    [1] = "Agarrado",
+                    [2] = "Values",
+                    [3] = "20"
+                }
+                game:GetService("ReplicatedStorage").Remotes.Pasante:FireServer(unpack(args))
+                wait(0.1)        
+            end
+        end)
+	end    
+})
+
+
+local Tab = Window:MakeTab({
+	Name = "Misc",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+
+Tab:AddSlider({
+	Name = "Change WalkSpeed",
+	Min = 50,
+	Max = 200,
+	Default = 50,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "Speed",
+	Callback = function(WSValue)
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = WSValue
+	end    
+})
+
+Tab:AddToggle({
+	Name = "AutoRebirth",
+	Default = false,
+	Callback = function(RValue)
+		_G.autoreb = RValue
+
+        task.spawn(function()
+            while _G.autoreb do
+                local args = {
+                    [1] = "Rebirthear"
+                }
+                game:GetService("ReplicatedStorage").Remotes.Pasante:FireServer(unpack(args))
+                wait(10)
+            end
+        end)
+	end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "Credits",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddLabel("Discord User: !KatagiriYuuchi#7765")
+
+Tab:AddLabel("Discord Below")
+
+Tab:AddLabel("https://discord.gg/8rpj4MHXvp")

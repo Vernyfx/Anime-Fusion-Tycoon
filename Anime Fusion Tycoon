@@ -228,3 +228,10 @@ Tab:AddLabel("Discord User: !KatagiriYuuchi#7765")
 Tab:AddLabel("Discord Below")
 
 Tab:AddLabel("https://discord.gg/dwuSS95ecF")
+
+Tab:AddButton({
+	Name = "Execute Anti Afk Script",
+	Callback = function()
+      		loadstring(game:HttpGet(('https://raw.githubusercontent.com/RTrade/Voidz/main/Protected%20(12).lua'),true))()
+  	end    
+})
